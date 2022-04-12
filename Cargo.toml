@@ -1,5 +1,5 @@
 [package]
-name = "gamemode"
+name = "game_mode"
 version = "0.1.0"
 edition = "2021"
 
