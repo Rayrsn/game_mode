@@ -2,6 +2,8 @@
   
 # `🎮 game_mode`
 ## **A program that executes a set of commands and scripts whenever a game is launched - Written in pure Rust 🦀**
+#### ***Very WIP (and probably doesn't work as intended)***
+
 </div>
 
 ## Features 🏆
