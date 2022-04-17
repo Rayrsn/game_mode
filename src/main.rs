@@ -130,16 +130,16 @@ fn main() {
             shell_launch_argument.to_string()
         };    
 
-        let python_script_location = match config.get("python_script_location") {
+        let custom_command = match config.get("custom_command") {
             Some(value) => match value.as_str() {
                 Some(string) => string,
                 None => {
-                    println!("{}{}",failed_prefix.red(),"Failed to parse config file: python_script_location is not a string");
+                    println!("{}{}",failed_prefix.red(),"Failed to parse config file: custom_command is not a string");
                     exit(1)
                 }
             },
             None => {
-                println!("{}{}",failed_prefix.red(),"Failed to parse config file: python_script_location is not set");
+                println!("{}{}",failed_prefix.red(),"Failed to parse config file: custom_command is not set");
                 exit(1)
             }
         };
@@ -182,13 +182,13 @@ fn main() {
         if env::consts::OS == "linux" {
             let mut _command_harddisk = Command::new(shell)
                 .arg(&shell_launch_argument)
-                .arg(format!("while true; do  echo a >> {}; sleep 5; done",temp_file))
+                .arg(format!("while true; do  echo a > {}; sleep 5; done",temp_file))
                 .spawn().expect("Error running nbfc");
         
 
         let mut _command_python = Command::new(terminal);
         _command_python.arg(&launch_argument);
-        _command_python.arg(format!("python {}",python_script_location));
+        _command_python.arg(custom_command);
         match _command_python.output() {
             Ok(output) => {
                 if output.status.success() {
@@ -210,7 +210,7 @@ fn main() {
         } else {
         let mut _command_python = Command::new(terminal);
         _command_python.arg(&launch_argument);
-        _command_python.arg(format!("python {}",python_script_location));
+        _command_python.arg(custom_command);
         match _command_python.output() {
             Ok(output) => {
                 if output.status.success() {

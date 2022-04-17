@@ -23,8 +23,8 @@ pub fn create(toml_location: &PathBuf) {
             config_file.push_str("# for example, in cmd it's 'K'\n");
             config_file.push_str("launch_argument = \"e\"\n");
             config_file.push_str("\n");
-            config_file.push_str("# python script location *EDIT THIS*\n");
-            config_file.push_str("python_script_location = \"\"\n");
+            config_file.push_str("# custom command to be ran *EDIT THIS*\n");
+            config_file.push_str("custom_command = \"\"\n");
             config_file.push_str("\n");
             config_file.push_str("# Execute NBFC? *EDIT THIS* (Note Book Fan Control (https://github.com/hirschmann/nbfc) is a software for controlling the speed of your laptop fans.)\n");
             config_file.push_str("execute_nbfc = \"false\"\n");
