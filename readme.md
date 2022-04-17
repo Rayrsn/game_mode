@@ -10,7 +10,7 @@
 * Set the laptop fan speed to maximum.
   * Has to be set manually in the config file.
   * `nbfc` should be installed and added to the path.
-* Run a custom python script.
+* Run a custom command.
   * Personally I execute my own [pingr](https://github.com/Rayrsn/pingr) script to check my ping.
 * Keep hard drive alive.
   * Does this by writing to a temporary file every 5 seconds. (Doesn't affect disk storage)
