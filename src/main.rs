@@ -1,4 +1,4 @@
-use std::{io:: Read,fs, process::{exit, Command}, env};
+use std::{thread, time,io:: Read,fs, process::{exit, Command}, env};
 use colored::Colorize;
 use toml;
 use dirs;
@@ -221,7 +221,9 @@ fn main() {
                 exit(0);
             })
             .expect("Error setting Ctrl-C handler");
-            loop{}
+            loop{
+                thread::sleep(time::Duration::from_secs(600));
+            }
         }
     }
     }
