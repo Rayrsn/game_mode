@@ -26,6 +26,6 @@ cargo build --release
 ## Usage 📚
 
 * You can run `game_mode -h` to see the possible launch arguments (The default value for every argument is ***true***).
-1. Add `game_mode &` to the beginning of Launch Options of your Steam game. (game_mode has to be added to path)
+1. Add `game_mode &` to the beginning of Launch Options of your Steam game. (***game_mode*** has to be added to path)
    * (e.g. adding `game_mode -c &` to the beginning of Launch Options will cause the program to not execute a custom command)
 1. Enjoy!
