@@ -183,6 +183,17 @@ fn main() {
             .arg("nbfc set -s 100")
             .spawn().expect("Error running nbfc");
     }
+    if args.cmd != true {
+        print!("\n{}{}",success_prefix.green(), "Command has been run | ");
+    } else {
+        print!("\n{}{}","[   OFF   ] ".red(), "Command is not running | ");
+    }
+    if args.nbfc != true {
+        print!("{}{}",success_prefix.green(), "Fan speed changed | ");
+    } else {
+        print!("{}{}","[   OFF   ] ".red(), "Fan speed is not changed | ");
+    }
+    println!("{}{}",success_prefix.green(), "Keeping hard drive alive ");
 
     if env::consts::OS == "linux" {
         let mut _command_harddisk = Command::new(&shell)
@@ -196,7 +207,7 @@ fn main() {
         match _custom_command.output() {
             Ok(output) => {
                 if output.status.success() {
-                    println!("{}{}",success_prefix.green(),"Successfully ran the command");
+                    println!("{}{}",success_prefix.green(),"Reverting the settings...");
                     _command_harddisk.kill().expect("Failed to kill _command_harddisk process");
                     if execute_nbfc == "true" && args.nbfc != true {
                         let mut _command_fan_max = Command::new(shell)
@@ -213,6 +224,7 @@ fn main() {
         }
         } else {
             ctrlc::set_handler(move || {
+                println!("{}{}",success_prefix.green(),"Reverting the settings...");
                 let mut _command_fan_max = Command::new(&shell)
                                     .arg(&shell_launch_argument)
                                     .arg("nbfc set -a")
