@@ -193,7 +193,11 @@ fn main() {
     } else {
         print!("{}{}","[   OFF   ] ".red(), "Fan speed is not changed | ");
     }
-    println!("{}{}",success_prefix.green(), "Keeping hard drive alive ");
+    if env::consts::OS == "linux"{
+        println!("{}{}",success_prefix.green(), "Keeping hard drive alive ");
+    } else {
+        println!("{}{}","[   OFF   ] ".red(), "Not writing to hard drive ");
+    }
 
     if env::consts::OS == "linux" {
         let mut _command_harddisk = Command::new(&shell)
