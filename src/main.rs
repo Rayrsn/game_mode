@@ -184,17 +184,17 @@ fn main() {
             .spawn().expect("Error running nbfc");
     }
     if args.cmd != true {
-        print!("\n{}{}",success_prefix.green(), "Command has been run | ");
+        print!("\n{}{}","[   ON   ] ".green(), "Command has been run | ");
     } else {
         print!("\n{}{}","[   OFF   ] ".red(), "Command is not running | ");
     }
     if args.nbfc != true {
-        print!("{}{}",success_prefix.green(), "Fan speed changed | ");
+        print!("{}{}","[   ON   ] ".green(), "Fan speed changed | ");
     } else {
         print!("{}{}","[   OFF   ] ".red(), "Fan speed is not changed | ");
     }
     if env::consts::OS == "linux"{
-        println!("{}{}",success_prefix.green(), "Keeping hard drive alive ");
+        println!("{}{}","[   ON   ] ".green(), "Keeping hard drive alive ");
     } else {
         println!("{}{}","[   OFF   ] ".red(), "Not writing to hard drive ");
     }
